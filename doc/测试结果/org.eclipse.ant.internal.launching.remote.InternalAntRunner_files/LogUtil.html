@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>LogUtil.java</title>
+
+	<meta name="GENERATOR" content="CodePro Server"/>
+
+	<style type="text/css">
+	table.code {border-spacing: 0; border-collapse: collapse; border-width: 1px 0 1px 1px; }
+table.code td {padding-left: 0.25em; padding-right: 0.25em; font-family: courier,monospace; font-size: 10pt; border-style: solid; border-color: black;}
+tr.first td.lineNumber {border-width: 1px 1px 0 1px; text-align: right;}
+tr.first td.sourceLine {border-width: 1px 1px 0 1px; background-color: #F0F0FF;}
+tr.first td.covered {border-width: 1px 1px 0 1px; background-color: #9fdb9f;}
+tr.first td.partiallycovered {border-width: 1px 1px 0 1px; background-color: #fffe9b;}
+tr.first td.uncovered {border-width: 1px 1px 0 1px; background-color: #fb8a7b;}
+tr.middle td.lineNumber {border-width: 0 1px 0 1px; text-align: right;}
+tr.middle td.sourceLine {border-width: 0 1px 0 1px; background-color: #F0F0FF;}
+tr.middle td.covered {border-width: 0 1px 0 1px; background-color: #9fdb9f;}
+tr.middle td.partiallycovered {border-width: 0 1px 0 1px; background-color: #fffe9b;}
+tr.middle td.uncovered {border-width: 0 1px 0 1px; background-color: #fb8a7b;}
+tr.last td.lineNumber {border-width: 0 1px 1px 1px; text-align: right;}
+tr.last td.sourceLine {border-width: 0 1px 1px 1px; background-color: #F0F0FF;}
+tr.last td.covered {border-width: 0 1px 1px 1px; background-color: #9fdb9f;}
+tr.last td.partiallycovered {border-width: 0 1px 1px 1px; background-color: #fffe9b;}
+tr.last td.uncovered {border-width: 0 1px 1px 1px; background-color: #fb8a7b;}
+.threshold { color: #FF0000; }
+	</style>
+
+	<style type="text/css">
+	body {font: 70% verdana,arial,helvetica; color: #000000}
+p  {margin-top:  3px; line-height: 1.5em}
+h1 {margin-top:  0px; margin-bottom: 6px; font: bold 150% verdana,arial,helvetica}
+h2 {margin-top: 12px; margin-bottom: 6px; font: bold 125% verdana,arial,helvetica}
+h3 {margin-top: 12px; margin-bottom: 6px; font: bold 100% verdana,arial,helvetica}
+h4 {margin-top: 12px; margin-bottom: 6px; font: bold 100% verdana,arial,helvetica}
+.rounded_page{display:block}
+.rounded_page *{display:block; height:1px; overflow:hidden; font-size:.01em; background:#7799DD}
+.rounded_page1{ margin-left:3px; margin-right:3px; padding-left:1px; padding-right:1px; border-left:1px solid #c4d3ef; border-right:1px solid #c4d3ef; background:#99b2e5}
+.rounded_page2{ margin-left:1px; margin-right:1px; padding-right:1px; padding-left:1px; border-left:1px solid #f1f4fa; border-right:1px solid #f1f4fa; background:#90ace3}
+.rounded_page3{ margin-left:1px; margin-right:1px; border-left:1px solid #90ace3; border-right:1px solid #90ace3;}
+.rounded_page4{ border-left:1px solid #c4d3ef; border-right:1px solid #c4d3ef}
+.rounded_page5{ border-left:1px solid #99b2e5; border-right:1px solid #99b2e5}
+.rounded_pagefg{ background:#7799DD}
+.rounded_section{display:block}
+.rounded_section *{display:block; height:1px; overflow:hidden; font-size:.01em; background:#C3D9FF}
+.rounded_section1{ margin-left:3px; margin-right:3px; padding-left:1px; padding-right:1px; border-left:1px solid #e5eefe; border-right:1px solid #e5eefe; background:#d2e2fe}
+.rounded_section2{ margin-left:1px; margin-right:1px; padding-right:1px; padding-left:1px; border-left:1px solid #f9fbfe; border-right:1px solid #f9fbfe; background:#cee0fe}
+.rounded_section3{ margin-left:1px; margin-right:1px; border-left:1px solid #cee0fe; border-right:1px solid #cee0fe;}
+.rounded_section4{ border-left:1px solid #e5eefe; border-right:1px solid #e5eefe}
+.rounded_section5{ border-left:1px solid #d2e2fe; border-right:1px solid #d2e2fe}
+.rounded_sectionfg{ background:#C3D9FF}
+.page-title { color: #FFFFFE; font-weight: bold; font-size: large; margin: 0px 0px 0px 8px; }
+.page-title-details { color: #FFFFFE; font-weight: bold; margin-right: 8px; margin-left: 8px; }
+.page-footer { color: #FFFFFE; font-weight: bold; margin-left: 8px}
+.page-footer-details { color: #FFFFFE; font-weight: bold; margin-right: 8px; margin-left: 8px; }
+.majorsection-title { color: #FFFFFE; font-weight: bold; margin: 0px 0px 0px 8px; }
+.majorsection-title-details { color: #FFFFFE; font-weight: bold; margin-right: 8px; margin-left: 8px; }
+.majorsection-contents { margin: 0px 0px 15px 16px; }
+.section-title { color: #1F4F8F; font-weight: bold; margin: 0px 0px 0px 6px; }
+.section-title-details { font-weight: bold; margin-left: 6px; margin-right: 6px; }
+.section-contents { margin: 6px 0px 15px 14px; }
+.bodyTable { border: 0px solid #777777; width:100%; border-collapse: collapse; }
+.bodyTable th { border: 1px solid #777777; white-space:nowrap; background-color: #EEEEEE; padding-left: 3px; padding-right: 3px; }
+.bodyTable td { border: 1px solid #777777; vertical-align: top; padding-left: 3px; padding-right: 3px; }
+td[class=emptyborder] { border: 0px solid #777777; padding: 3px 0px 3px 0px; }
+
+	</style>
+
+</head>
+
+<body>
+
+<div>
+		<b class="rounded_page"><b class="rounded_page1"><b></b></b><b class="rounded_page2"><b></b></b><b class="rounded_page3"></b><b class="rounded_page4"></b><b class="rounded_page5"></b></b>
+		<div class="rounded_pagefg">
+			<h3 class="majorsection-title"><a name="top">/tpp/src/org/test/tpp/util/LogUtil.java</a></h3>
+		</div>
+		<b class="rounded_page"><b class="rounded_page5"></b><b class="rounded_page4"></b><b class="rounded_page3"></b><b class="rounded_page2"><b></b></b><b class="rounded_page1"><b></b></b></b>
+	</div>
+	<div class="majorsection-contents">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0" ><tr><td width="50%" valign="top">
+		&nbsp;
+		<div>
+			<b class="rounded_section"><b class="rounded_section1"><b></b></b><b class="rounded_section2"><b></b></b><b class="rounded_section3"></b><b class="rounded_section4"></b><b class="rounded_section5"></b></b>
+			<div class="rounded_sectionfg">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" ><tr><td valign="middle">
+				<h4 class="section-title">Code Coverage Summary</h4>
+				</td><td align="right" valign="middle">
+				<span class="section-title-details"><span class="threshold">45.5% coverage</span></span></td></tr></table>
+			</div>
+			<b class="rounded_section"><b class="rounded_section5"></b><b class="rounded_section4"></b><b class="rounded_section3"></b><b class="rounded_section2"><b></b></b><b class="rounded_section1"><b></b></b></b>
+		</div>
+		<div class="section-contents">
+			<table class="bodyTable">
+				<tr><td>Executable Lines</td><td align="right">
+				22</td></tr>
+				<tr><td>Line Coverage</td><td align="right">
+				<span class="threshold">45.5%</span></td></tr>
+				<tr><td>Block Coverage</td><td align="right">
+				<span class="threshold">46.2%</span></td></tr>
+				<tr><td>Instruction Coverage</td><td align="right">
+				<span class="threshold">39.6%</span></td></tr>
+			</table>
+		</div>
+		</td><td width="15">&nbsp;&nbsp;</td><td width="50%" valign="top">
+		&nbsp;
+		<div>
+			<b class="rounded_section"><b class="rounded_section1"><b></b></b><b class="rounded_section2"><b></b></b><b class="rounded_section3"></b><b class="rounded_section4"></b><b class="rounded_section5"></b></b>
+			<div class="rounded_sectionfg">
+				<h4 class="section-title">Legend</h4>
+			</div>
+			<b class="rounded_section"><b class="rounded_section5"></b><b class="rounded_section4"></b><b class="rounded_section3"></b><b class="rounded_section2"><b></b></b><b class="rounded_section1"><b></b></b></b>
+		</div>
+		<div class="section-contents">
+			<table class="bodyTable">
+				<tr><td bgcolor="#9fdb9f">Line is fully covered</td></tr>
+				<tr><td bgcolor="#fffe9b">Line is partially covered</td></tr>
+				<tr><td bgcolor="#fb8a7b">Line is not covered</td></tr>
+			</table>
+		</div>
+		</td></tr></table>
+	</div>
+	<div>
+		<b class="rounded_page"><b class="rounded_page1"><b></b></b><b class="rounded_page2"><b></b></b><b class="rounded_page3"></b><b class="rounded_page4"></b><b class="rounded_page5"></b></b>
+		<div class="rounded_pagefg">
+			<h3 class="majorsection-title">Source</h3>
+		</div>
+		<b class="rounded_page"><b class="rounded_page5"></b><b class="rounded_page4"></b><b class="rounded_page3"></b><b class="rounded_page2"><b></b></b><b class="rounded_page1"><b></b></b></b>
+	</div>
+	<div class="section-contents">
+		<table width="100%" class="code">
+		<tr class="first">
+		<td class="lineNumber"><a name="line1">1</a></td>
+		<td class="sourceLine" width="100%">/**</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line2">2</a></td>
+		<td class="sourceLine" width="100%">*&nbsp;Project&nbsp;Name:tpp</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line3">3</a></td>
+		<td class="sourceLine" width="100%">*&nbsp;Date:2016&#39582;&#65533;&#37832;&#65533;&#37827;&#12516;&#31490;&#37719;&#65533;:53:13</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line4">4</a></td>
+		<td class="sourceLine" width="100%">*&nbsp;Copyright&nbsp;(c)&nbsp;2016,&nbsp;jingma@iflytek.com&nbsp;All&nbsp;Rights&nbsp;Reserved.</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line5">5</a></td>
+		<td class="sourceLine" width="100%">*/</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line6">6</a></td>
+		<td class="sourceLine" width="100%"></td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line7">7</a></td>
+		<td class="sourceLine" width="100%">package&nbsp;org.test.tpp.util;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line8">8</a></td>
+		<td class="sourceLine" width="100%"></td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line9">9</a></td>
+		<td class="sourceLine" width="100%"></td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line10">10</a></td>
+		<td class="sourceLine" width="100%">/**</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line11">11</a></td>
+		<td class="sourceLine" width="100%">&nbsp;*&nbsp;&#28051;&#36720;&#31497;&#23534;&#26334;&#21446;Log&#37929;&#31295;&#21479;jar&#38171;&#23683;&#32342;&#38322;&#23680;&#30045;&#37719;&#26335;&#257;&#37815;&#29110;&#31777;&#37827;&#12517;&#32340;&#23480;&#12517;&#21503;&nbsp;&lt;br/&gt;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line12">12</a></td>
+		<td class="sourceLine" width="100%">&nbsp;*&nbsp;date:&nbsp;2016&#39582;&#65533;&#37832;&#65533;&#37827;&#65533;&#28051;&#23106;&#23821;9:53:13&nbsp;&lt;br/&gt;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line13">13</a></td>
+		<td class="sourceLine" width="100%">&nbsp;*&nbsp;@author&nbsp;jingma@iflytek.com</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line14">14</a></td>
+		<td class="sourceLine" width="100%">&nbsp;*&nbsp;@version&nbsp;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line15">15</a></td>
+		<td class="sourceLine" width="100%">&nbsp;*/</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line16">16</a></td>
+		<td class="uncovered" width="100%">public&nbsp;class&nbsp;LogUtil&nbsp;{</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line17">17</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;/**</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line18">18</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&#37813;&#25779;&#23875;&#29835;&#20909;&#30255;&#37827;&#12517;&#32340;&#28103;&#8451;&#20229;&nbsp;&lt;br/&gt;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line19">19</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@author&nbsp;jingma@iflytek.com</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line20">20</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;msg&nbsp;&#29781;&#20345;&#22694;&#37719;&#25198;&#27537;&#23057;&#22559;&#20229;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line21">21</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;*/</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line22">22</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;void&nbsp;debug(String&nbsp;msg){</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line23">23</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;debug(msg,null);</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line24">24</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line25">25</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;/**</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line26">26</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&#37813;&#25779;&#23875;&#29835;&#20909;&#30255;&#37827;&#12517;&#32340;&#28103;&#8451;&#20229;&nbsp;&lt;br/&gt;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line27">27</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@author&nbsp;jingma@iflytek.com</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line28">28</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;msg&nbsp;&#29781;&#20345;&#22694;&#37719;&#25198;&#27537;&#23057;&#22559;&#20229;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line29">29</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;t&nbsp;&#37929;&#31295;&#21479;&#23534;&#20634;&#29238;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line30">30</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;*/</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line31">31</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;void&nbsp;debug(String&nbsp;msg,Throwable&nbsp;t){</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line32">32</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(DateUtil.getCurrentDate()+&quot;&nbsp;DEBUG&nbsp;&quot;+msg);</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line33">33</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(t&nbsp;!=&nbsp;null){</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line34">34</a></td>
+		<td class="uncovered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.print(DateUtil.getCurrentDate()+&quot;&nbsp;&quot;);</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line35">35</a></td>
+		<td class="uncovered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t.printStackTrace();</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line36">36</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line37">37</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line38">38</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;/**</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line39">39</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&#37813;&#25779;&#23875;&#28051;&#65533;&#22471;&#37827;&#12517;&#32340;&#28103;&#8451;&#20229;&nbsp;&lt;br/&gt;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line40">40</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@author&nbsp;jingma@iflytek.com</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line41">41</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;msg&nbsp;&#29781;&#20345;&#22694;&#37719;&#25198;&#27537;&#23057;&#22559;&#20229;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line42">42</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;*/</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line43">43</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;void&nbsp;info(String&nbsp;msg){</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line44">44</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;info(msg,null);</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line45">45</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line46">46</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;/**</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line47">47</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&#37813;&#25779;&#23875;&#28051;&#65533;&#22471;&#37827;&#12517;&#32340;&#28103;&#8451;&#20229;&nbsp;&lt;br/&gt;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line48">48</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@author&nbsp;jingma@iflytek.com</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line49">49</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;msg&nbsp;&#29781;&#20345;&#22694;&#37719;&#25198;&#27537;&#23057;&#22559;&#20229;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line50">50</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;t&nbsp;&#37929;&#31295;&#21479;&#23534;&#20634;&#29238;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line51">51</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;*/</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line52">52</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;void&nbsp;info(String&nbsp;msg,Throwable&nbsp;t){</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line53">53</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(DateUtil.getCurrentDate()+&quot;&nbsp;INFO&nbsp;&quot;+msg);</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line54">54</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(t&nbsp;!=&nbsp;null){</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line55">55</a></td>
+		<td class="uncovered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.print(DateUtil.getCurrentDate()+&quot;&nbsp;&quot;);</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line56">56</a></td>
+		<td class="uncovered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t.printStackTrace();</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line57">57</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line58">58</a></td>
+		<td class="covered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line59">59</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;/**</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line60">60</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&#37813;&#25779;&#23875;&#38335;&#27410;&#57828;&#37827;&#12517;&#32340;&#28103;&#8451;&#20229;&nbsp;&lt;br/&gt;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line61">61</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@author&nbsp;jingma@iflytek.com</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line62">62</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;msg&nbsp;&#29781;&#20345;&#22694;&#37719;&#25198;&#27537;&#23057;&#22559;&#20229;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line63">63</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;*/</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line64">64</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;void&nbsp;error(String&nbsp;msg){</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line65">65</a></td>
+		<td class="uncovered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;error(msg,null);</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line66">66</a></td>
+		<td class="uncovered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line67">67</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;/**</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line68">68</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&#37813;&#25779;&#23875;&#38335;&#27410;&#57828;&#37827;&#12517;&#32340;&#28103;&#8451;&#20229;&nbsp;&lt;br/&gt;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line69">69</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@author&nbsp;jingma@iflytek.com</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line70">70</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;msg&nbsp;&#29781;&#20345;&#22694;&#37719;&#25198;&#27537;&#23057;&#22559;&#20229;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line71">71</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;t&nbsp;&#37929;&#31295;&#21479;&#23534;&#20634;&#29238;</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line72">72</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;*/</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line73">73</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;void&nbsp;error(String&nbsp;msg,Throwable&nbsp;t){</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line74">74</a></td>
+		<td class="uncovered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(DateUtil.getCurrentDate()+&quot;&nbsp;ERROR&nbsp;&quot;+msg);</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line75">75</a></td>
+		<td class="uncovered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(t&nbsp;!=&nbsp;null){</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line76">76</a></td>
+		<td class="uncovered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.print(DateUtil.getCurrentDate()+&quot;&nbsp;&quot;);</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line77">77</a></td>
+		<td class="uncovered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t.printStackTrace();</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line78">78</a></td>
+		<td class="sourceLine" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line79">79</a></td>
+		<td class="uncovered" width="100%">&nbsp;&nbsp;&nbsp;&nbsp;}</td>
+		</tr>
+		<tr class="middle">
+		<td class="lineNumber"><a name="line80">80</a></td>
+		<td class="sourceLine" width="100%">}</td>
+		</tr>
+		<tr class="last">
+		<td class="lineNumber"><a name="line81">81</a></td>
+		<td class="sourceLine" width="100%"></td>
+		</tr>
+		</table>
+	</div>
+	<div>
+		<b class="rounded_page"><b class="rounded_page1"><b></b></b><b class="rounded_page2"><b></b></b><b class="rounded_page3"></b><b class="rounded_page4"></b><b class="rounded_page5"></b></b>
+		<div class="rounded_pagefg">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" ><tr><td valign="middle">
+			<span class="page-footer"></span>
+			</td><td align="right" valign="middle">
+			<span class="page-footer-details">Powered by <span title="0.0.0, UNKNOWN">CodePro Server</span></span></td></tr></table>
+		</div>
+		<b class="rounded_page"><b class="rounded_page5"></b><b class="rounded_page4"></b><b class="rounded_page3"></b><b class="rounded_page2"><b></b></b><b class="rounded_page1"><b></b></b></b>
+	</div>
+
+</body>
+
+</html>
