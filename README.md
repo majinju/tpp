@@ -3,31 +3,11 @@
 - 我的开发环境：win10、jdk1.7、eclipse
 
 1. 相关操作都需要依赖jdk，建议安装jdk1.7。
-1. tpp文件夹是一个完整的java工程，可以直接导入eclipse，但每个人环境有差异，可能还是需要有一定java能力的人来操作。
 1. 导入成功后，可以运行org.test.tpp.Main主类，有详细的帮助说明。
 1. 测试结果在doc\测试结果文件夹下。
 1. 问题分析文档也在doc文件夹中。
-1. 脚本示例
-	```
-	\echo 导入数据
-	\idf tpp_data.txt
-	\id ME5
-	\echo 显示数据
-	\sd
-	\echo 删除数据
-	\dd MC,MD,ME
-	\echo 题目中的测试样例
-	\tpd A-B-C
-	\tpd A-D
-	\tpd A-D-C
-	\tpd A-E-B-C-D
-	\tpd A-E-D
-	\sems CC3
-	\ses AC4
-	\semp AC
-	\semp BB
-	\semd CC30
-	```
+1. 数据文件示例：doc/tpp_data.txt
+1. 脚本示例：doc/test.tpp
 1. 使用帮助（这里基于打包好的jar文件，相关文件都在doc文件夹中）：
 	- 常规运行：java -jar tpp.jar ，若正常运行将看到详细的使用说明，效果如下所示：
 	```
