@@ -6,6 +6,10 @@
 
 package org.test.tpp.test;
 
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -30,5 +34,33 @@ public class TempTest {
 		Assert.assertFalse(("A2C,").matches(regex));
 		Assert.assertFalse(("AB2马静,").matches(regex));
 		Assert.assertFalse(("）AB2, ").matches(regex));
+	}
+	/**
+	* 堆测试 <br/>
+	* @author jingma@iflytek.com
+	*/
+	@Test
+	public void stackTest(){
+		Stack<String> s = new Stack<String>();
+		s.push("1");
+		s.push("2");
+		s.push("3");
+		while(!s.isEmpty()){
+			System.out.println(s.pop());
+		}
+	}
+	/**
+	* 队列测试 <br/>
+	* @author jingma@iflytek.com
+	*/
+	@Test
+	public void queueTest(){
+		Queue<String> s = new LinkedList<String>();
+		s.add("1");
+		s.add("2");
+		s.add("3");
+		while(!s.isEmpty()){
+			System.out.println(s.remove());
+		}
 	}
 }

@@ -13,8 +13,9 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Stack;
+import java.util.Queue;
 
 import org.test.tpp.exception.TppCmdException;
 import org.test.tpp.exception.TppException;
@@ -300,15 +301,15 @@ public class TrainPathPlan {
 		if(!isValidCity(new String[]{start,end})){
 			return pppList;
 		}
-		Stack<PathPanelPoint> searchStack = new Stack<PathPanelPoint>();
-		searchStack.push(new PathPanelPoint(start));
+		Queue<PathPanelPoint> searchQueue = new LinkedList<PathPanelPoint>();
+		searchQueue.add(new PathPanelPoint(start));
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {
 			Connection conn = H2Util.getSingleConn();
 			ps = conn.prepareStatement(QUERY_END_BY_START);
-			while(!searchStack.isEmpty()){
-				PathPanelPoint startTemp = searchStack.pop();
+			while(!searchQueue.isEmpty()){
+				PathPanelPoint startTemp = searchQueue.remove();
 				ps.setString(1, startTemp.getCode());
 				rs = ps.executeQuery();
 				while(rs.next()){
@@ -318,7 +319,7 @@ public class TrainPathPlan {
 					}
 					//节点未达设定深度则加入搜索队列
 					if(endTemp.getDepth()<size){
-						searchStack.push(endTemp);
+						searchQueue.add(endTemp);
 					}
 				}
 				rs.close();
@@ -354,15 +355,15 @@ public class TrainPathPlan {
 			return -1;
 		}
 		PathPanelPoint result = null;
-		Stack<PathPanelPoint> searchStack = new Stack<PathPanelPoint>();
-		searchStack.push(new PathPanelPoint(start));
+		Queue<PathPanelPoint> searchQueue = new LinkedList<PathPanelPoint>();
+		searchQueue.add(new PathPanelPoint(start));
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {
 			Connection conn = H2Util.getSingleConn();
 			ps = conn.prepareStatement(QUERY_END_BY_START);
-			while(!searchStack.isEmpty()){
-				PathPanelPoint startTemp = searchStack.pop();
+			while(!searchQueue.isEmpty()){
+				PathPanelPoint startTemp = searchQueue.remove();
 				ps.setString(1, startTemp.getCode());
 				rs = ps.executeQuery();
 				while(rs.next()){
@@ -375,7 +376,7 @@ public class TrainPathPlan {
 						}
 					} else if(result==null||(endTemp.getDistance()<result.getDistance()&&!endTemp.isAlreadyPass())){
 						//如果还没有找到一个可能的结果或(到当前节点的距离比到已知结果的距离短且该节点没有重复走)时，将当前节点加入搜索
-						searchStack.push(endTemp);
+						searchQueue.add(endTemp);
 					}
 				}
 				rs.close();
@@ -415,15 +416,15 @@ public class TrainPathPlan {
 			return 0;
 		}
 		List<PathPanelPoint> pathList = new ArrayList<PathPanelPoint>();
-		Stack<PathPanelPoint> searchStack = new Stack<PathPanelPoint>();
-		searchStack.push(new PathPanelPoint(start));
+		Queue<PathPanelPoint> searchQueue = new LinkedList<PathPanelPoint>();
+		searchQueue.add(new PathPanelPoint(start));
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {
 			Connection conn = H2Util.getSingleConn();
 			ps = conn.prepareStatement(QUERY_END_BY_START);
-			while(!searchStack.isEmpty()){
-				PathPanelPoint startTemp = searchStack.pop();
+			while(!searchQueue.isEmpty()){
+				PathPanelPoint startTemp = searchQueue.remove();
 				ps.setString(1, startTemp.getCode());
 				rs = ps.executeQuery();
 				while(rs.next()){
@@ -432,7 +433,7 @@ public class TrainPathPlan {
 						pathList.add(endTemp);
 					}
 					if(endTemp.getDistance()<maxDistance){
-						searchStack.push(endTemp);
+						searchQueue.add(endTemp);
 					}
 				}
 				rs.close();
