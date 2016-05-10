@@ -1,7 +1,7 @@
 /**
 * Project Name:tpp
 * Date:2016年5月6日上午9:35:08
-* Copyright (c) 2016, jingma@iflytek.com All Rights Reserved.
+* Copyright (c) 2016, jinjuma@yeah.net All Rights Reserved.
 */
 
 package org.test.tpp;
@@ -18,7 +18,7 @@ import org.test.tpp.util.LogUtil;
  * 铁路路线规划主类 <br/>
  * 本类主要是为路线规划器提供一个操作接口，不属于试题主要考核内容，不编写单元测试类<br/>
  * date: 2016年5月6日 上午9:35:08 <br/>
- * @author jingma@iflytek.com
+ * @author jinjuma@yeah.net
  * @version 0.0.1
  */
 public class Main {
@@ -29,7 +29,7 @@ public class Main {
 
 	/**
 	* 铁路路线规划起点 <br/>
-	* @author jingma@iflytek.com
+	* @author jinjuma@yeah.net
 	* @param args 一般不需要参数，但可以使用<b>main -ef .\text.tpp</b>来运行脚本
 	 * @throws InterruptedException 
 	*/
@@ -73,7 +73,7 @@ public class Main {
 
 	/**
 	* 执行规划器命名 <br/>
-	* @author jingma@iflytek.com
+	* @author jinjuma@yeah.net
 	* @param line 一行规划器命令
 	* @return true:继续接收命令，false:结束输入
 	* @throws TppCmdException 
@@ -154,7 +154,7 @@ public class Main {
 
 	/**
 	* 打印帮助信息 <br/>
-	* @author jingma@iflytek.com
+	* @author jinjuma@yeah.net
 	*/
 	public static void printHelp() {
 		System.out.println("帮助信息：");

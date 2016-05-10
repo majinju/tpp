@@ -1,7 +1,7 @@
 /**
 * Project Name:tpp
 * Date:2016年5月6日下午5:32:07
-* Copyright (c) 2016, jingma@iflytek.com All Rights Reserved.
+* Copyright (c) 2016, jinjuma@yeah.net All Rights Reserved.
 */
 
 package org.test.tpp;
@@ -11,7 +11,7 @@ import java.io.Serializable;
 /**
  * 道路节点对象 <br/>
  * date: 2016年5月6日 下午5:32:07 <br/>
- * @author jingma@iflytek.com
+ * @author jinjuma@yeah.net
  * @version 
  */
 public class PathPanelPoint implements Serializable{
@@ -137,7 +137,7 @@ public class PathPanelPoint implements Serializable{
 
 	/**
 	* 判断该路线前面是否已经经过了这个节点 <br/>
-	* @author jingma@iflytek.com
+	* @author jinjuma@yeah.net
 	* @return
 	*/
 	public boolean isAlreadyPass() {

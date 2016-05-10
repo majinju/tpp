@@ -1,7 +1,7 @@
 /**
  * Project Name:tpp
  * Date:2016年5月6日上午9:35:29
- * Copyright (c) 2016, jingma@iflytek.com All Rights Reserved.
+ * Copyright (c) 2016, jinjuma@yeah.net All Rights Reserved.
  */
 
 package org.test.tpp.util;
@@ -19,7 +19,7 @@ import org.test.tpp.exception.TppException;
  * H2数据库操作工具类<br/>
  * date: 2016年5月6日 上午9:35:29 <br/>
  * 
- * @author jingma@iflytek.com
+ * @author jinjuma@yeah.net
  * @version
  */
 public class H2Util {
@@ -37,7 +37,7 @@ public class H2Util {
 	/**
 	 * 启动数据 <br/>
 	 * 
-	 * @author jingma@iflytek.com
+	 * @author jinjuma@yeah.net
 	 */
 	public static void start() {
 		try {
@@ -54,7 +54,7 @@ public class H2Util {
 	/**
 	 * 停止数据 <br/>
 	 * 
-	 * @author jingma@iflytek.com
+	 * @author jinjuma@yeah.net
 	 */
 	public static void stop() {
 		if (server != null) {
@@ -67,7 +67,7 @@ public class H2Util {
 	/**
 	 * 获取单例的数据库连接<br/>
 	 * 
-	 * @author jingma@iflytek.com
+	 * @author jinjuma@yeah.net
 	 * @return
 	 * @throws ClassNotFoundException
 	 * @throws SQLException
@@ -83,7 +83,7 @@ public class H2Util {
 	 * 获取数据库连接 <br/>
 	 * 正式使用都是使用连接池（阿里的Druid数据库连接池不错，有很好的监控支持），一般不需要自己维护数据库连接。<br/>
 	 * 
-	 * @author jingma@iflytek.com
+	 * @author jinjuma@yeah.net
 	 * @return
 	 * @throws ClassNotFoundException
 	 * @throws SQLException
@@ -103,7 +103,7 @@ public class H2Util {
 	/**
 	 * 关闭数据库连接 <br/>
 	 * 
-	 * @author jingma@iflytek.com
+	 * @author jinjuma@yeah.net
 	 * @param conn 要关闭的连接
 	 */
 	public static void close(Connection conn) {
@@ -118,7 +118,7 @@ public class H2Util {
 	/**
 	 * 关闭数据库游标<br/>
 	 * 
-	 * @author jingma@iflytek.com
+	 * @author jinjuma@yeah.net
 	 * @param stat 要关闭的游标
 	 */
 	public static void close(Statement stat) {
@@ -133,7 +133,7 @@ public class H2Util {
 	/**
 	 * 关闭数据库结果集<br/>
 	 * 
-	 * @author jingma@iflytek.com
+	 * @author jinjuma@yeah.net
 	 * @param rs 要关闭的结果集
 	 */
 	public static void close(ResultSet rs) {
@@ -148,7 +148,7 @@ public class H2Util {
 	/**
 	 * 关闭数据库连接 <br/>
 	 * 
-	 * @author jingma@iflytek.com
+	 * @author jinjuma@yeah.net
 	 */
 	public static void close() {
 		close(conn);

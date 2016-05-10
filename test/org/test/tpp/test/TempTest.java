@@ -1,7 +1,7 @@
 /**
 * Project Name:tpp
 * Date:2016年5月6日上午10:57:15
-* Copyright (c) 2016, jingma@iflytek.com All Rights Reserved.
+* Copyright (c) 2016, jinjuma@yeah.net All Rights Reserved.
 */
 
 package org.test.tpp.test;
@@ -16,13 +16,13 @@ import org.junit.Test;
 /**
  * 临时技术验证使用 <br/>
  * date: 2016年5月6日 上午10:57:15 <br/>
- * @author jingma@iflytek.com
+ * @author jinjuma@yeah.net
  * @version 
  */
 public class TempTest {
 	/**
 	* 测试正则匹配 <br/>
-	* @author jingma@iflytek.com
+	* @author jinjuma@yeah.net
 	*/
 	@Test
 	public void matchTest(){
@@ -37,7 +37,7 @@ public class TempTest {
 	}
 	/**
 	* 堆测试 <br/>
-	* @author jingma@iflytek.com
+	* @author jinjuma@yeah.net
 	*/
 	@Test
 	public void stackTest(){
@@ -51,7 +51,7 @@ public class TempTest {
 	}
 	/**
 	* 队列测试 <br/>
-	* @author jingma@iflytek.com
+	* @author jinjuma@yeah.net
 	*/
 	@Test
 	public void queueTest(){

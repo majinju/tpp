@@ -1,7 +1,7 @@
 /**
 * Project Name:tpp
 * Date:2016年5月6日上午10:12:20
-* Copyright (c) 2016, jingma@iflytek.com All Rights Reserved.
+* Copyright (c) 2016, jinjuma@yeah.net All Rights Reserved.
 */
 
 package org.test.tpp.exception;
@@ -9,7 +9,7 @@ package org.test.tpp.exception;
 /**
  * 铁路路线规划异常 <br/>
  * date: 2016年5月6日 上午10:12:20 <br/>
- * @author jingma@iflytek.com
+ * @author jinjuma@yeah.net
  * @version 
  */
 public class TppException extends RuntimeException {

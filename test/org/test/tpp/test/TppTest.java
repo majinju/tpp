@@ -1,7 +1,7 @@
 /**
  * Project Name:tpp
  * Date:2016年5月6日下午4:13:32
- * Copyright (c) 2016, jingma@iflytek.com All Rights Reserved.
+ * Copyright (c) 2016, jinjuma@yeah.net All Rights Reserved.
  */
 
 package org.test.tpp.test;
@@ -19,7 +19,7 @@ import org.test.tpp.util.LogUtil;
  * 路线规划单元测试类 <br/>
  * date: 2016年5月6日 下午4:13:32 <br/>
  * 
- * @author jingma@iflytek.com
+ * @author jinjuma@yeah.net
  * @version 0.0.1
  */
 public class TppTest {
@@ -42,7 +42,7 @@ public class TppTest {
 	/**
 	 * 测试初始化操作 <br/>
 	 * 
-	 * @author jingma@iflytek.com
+	 * @author jinjuma@yeah.net
 	 * @throws TppCmdException
 	 */
 	@Before
@@ -60,7 +60,7 @@ public class TppTest {
 	/**
 	 * 测试结束操作 <br/>
 	 * 
-	 * @author jingma@iflytek.com
+	 * @author jinjuma@yeah.net
 	 */
 	@After
 	public void after() {

@@ -1,7 +1,7 @@
 /**
 * Project Name:tpp
 * Date:2016年5月6日上午10:37:43
-* Copyright (c) 2016, jingma@iflytek.com All Rights Reserved.
+* Copyright (c) 2016, jinjuma@yeah.net All Rights Reserved.
 */
 
 package org.test.tpp;
@@ -25,7 +25,7 @@ import org.test.tpp.util.LogUtil;
 /**
  * 火车路线规划主要实现 <br/>
  * date: 2016年5月6日 上午10:37:43 <br/>
- * @author jingma@iflytek.com
+ * @author jinjuma@yeah.net
  * @version 0.0.1
  */
 public class TrainPathPlan {
@@ -51,7 +51,7 @@ public class TrainPathPlan {
 	public static final String TRAIN_PATH_DISTANCE_SQL = "SELECT DISTANCE FROM T_TRAIN_PATH T WHERE T.START=? and T.END=?";
 	/**
 	* 初始化数据库<br/>
-	* @author jingma@iflytek.com
+	* @author jinjuma@yeah.net
 	* @return
 	*/
 	public boolean initDatabase(){
@@ -74,7 +74,7 @@ public class TrainPathPlan {
 	* 导入火车路线数据 <br/>
 	* 通过如下格式提供铁路图（AB5-->A到B单向铁路距离5个单位）：<br/>
 	* AB5,BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7
-	* @author jingma@iflytek.com
+	* @author jinjuma@yeah.net
 	* @param data 数据字符串
 	* @return 导入路线数
 	 * @throws TppCmdException 
@@ -114,7 +114,7 @@ public class TrainPathPlan {
 	}
 	/**
 	* 更新城市数据 <br/>
-	* @author jingma@iflytek.com
+	* @author jinjuma@yeah.net
 	* @throws TppCmdException 
 	*/
 	private void updateCityData() throws TppCmdException{
@@ -135,7 +135,7 @@ public class TrainPathPlan {
 	}
 	/**
 	* 显示火车路线数据 <br/>
-	* @author jingma@iflytek.com
+	* @author jinjuma@yeah.net
 	 * @throws TppCmdException 
 	*/
 	public void showTrainPathData() throws TppCmdException{
@@ -157,7 +157,7 @@ public class TrainPathPlan {
 	* 删除火车路线数据 <br/>
 	* 通过如下格式提供要删除的铁线路（AB-->A到B单向铁路）：<br/>
 	* AB,BC<br/>
-	* @author jingma@iflytek.com
+	* @author jinjuma@yeah.net
 	* @param data 数据字符串
 	* @return 导入路线数
 	 * @throws TppCmdException 
@@ -195,7 +195,7 @@ public class TrainPathPlan {
 	}
 	/**
 	* 根据给定路线计算距离<br/>
-	* @author jingma@iflytek.com
+	* @author jinjuma@yeah.net
 	* @param path 路线
 	* @return 距离
 	 * @throws TppCmdException 
@@ -242,7 +242,7 @@ public class TrainPathPlan {
 	/**
 	* 给定起点、终点、最大经过站数量给出有多少种路线 <br/>
 	* 参数格式：AB3 --> A到B最多经过3个站（不包括起点）
-	* @author jingma@iflytek.com
+	* @author jinjuma@yeah.net
 	* @param param 计算需要的参数
 	* @return 路线数量
 	 * @throws TppCmdException 
@@ -256,7 +256,7 @@ public class TrainPathPlan {
 	/**
 	* 给定起点、终点、刚好经过站数量给出有多少种路线。<br/>
 	* 参数格式：AB3 --> A到B最多经过3个站（不包括起点）
-	* @author jingma@iflytek.com
+	* @author jinjuma@yeah.net
 	* @param param 计算需要的参数
 	* @return 路线数量
 	 * @throws TppCmdException 
@@ -279,7 +279,7 @@ public class TrainPathPlan {
 	/**
 	* 给定起点、终点、最大经过站数量给出全部路线 <br/>
 	* 参数格式：AB3 --> A到B最多经过3个站（不包括起点）
-	* @author jingma@iflytek.com
+	* @author jinjuma@yeah.net
 	* @param param 计算需要的参数
 	* @return 路线列表，失败时返回null
 	 * @throws TppCmdException 
@@ -335,7 +335,7 @@ public class TrainPathPlan {
 	/**
 	* 给定起点和终点给出最短路线距离。<br/>
 	* 参数格式：AB --> A到B
-	* @author jingma@iflytek.com
+	* @author jinjuma@yeah.net
 	* @param param 计算需要的参数
 	* @return 最短距离
 	 * @throws TppCmdException 
@@ -394,7 +394,7 @@ public class TrainPathPlan {
 	/**
 	* 给定起点、终点、小于最大路线距离给出有多少种路线。<br/>
 	* 参数格式：AB50 --> A到B最大行程小于50
-	* @author jingma@iflytek.com
+	* @author jinjuma@yeah.net
 	* @param param 计算需要的参数
 	* @return 路线数
 	 * @throws TppCmdException 
@@ -450,7 +450,7 @@ public class TrainPathPlan {
 	}
 	/**
 	* 递归实现：根据节点得到路线 <br/>
-	* @author jingma@iflytek.com
+	* @author jinjuma@yeah.net
 	* @param endTemp 终点节点
 	* @return 路线
 	*/
@@ -463,7 +463,7 @@ public class TrainPathPlan {
 	}
 	/**
 	* 根据节点列表打印出对应的路线 <br/>
-	* @author jingma@iflytek.com
+	* @author jinjuma@yeah.net
 	* @param param 条件
 	* @param result 要打印路线的节点列表
 	*/
@@ -474,7 +474,7 @@ public class TrainPathPlan {
 	}
 	/**
 	* 打印出查询结果集 <br/>
-	* @author jingma@iflytek.com
+	* @author jinjuma@yeah.net
 	* @param rs
 	 * @throws TppCmdException 
 	*/
@@ -500,7 +500,7 @@ public class TrainPathPlan {
 	}
 	/**
 	* 判断给定城市是否都有效 <br/>
-	* @author jingma@iflytek.com
+	* @author jinjuma@yeah.net
 	* @param cityArr 城市列表
 	* @return 全部有效则返回true，否则返回false
 	 * @throws TppCmdException 
