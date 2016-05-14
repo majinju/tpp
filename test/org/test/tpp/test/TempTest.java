@@ -36,7 +36,7 @@ public class TempTest {
 		Assert.assertFalse(("）AB2, ").matches(regex));
 	}
 	/**
-	* 堆测试 <br/>
+	* 栈测试 <br/>
 	* @author jinjuma@yeah.net
 	*/
 	@Test
